@@ -8,6 +8,14 @@
       v-model="link"
     />
     <pre>{{ result }}</pre>
+
+    <p>Force profile:</p>
+    <v-select
+      v-model="selected"
+      placeholde="Profile name"
+      :options="options"
+      >
+    </v-select>
   </div>
 </template>
 
@@ -30,11 +38,16 @@ export default {
     return {
       link: '',
       result: {},
+      selected: '',
+      options: [...sl.profiles].map(([name]) => name)
     }
   },
-  watch: {
-    link(link) {
-      const detectedProfile = sl.detectProfile(link);
+  methods: {
+    updateResult(link) {
+      if (this.selected === '') {
+        this.selected = sl.detectProfile(link);
+      }
+      const detectedProfile = this.selected;
       try {
         this.result = {
           input: link,
@@ -50,6 +63,16 @@ export default {
           error: e
         }
       }
+    }
+  },
+  watch: {
+    link(link) {
+      this.updateResult(link);
+    },
+    selected(profile) {
+      const id = sl.getProfileId(sl.detectProfile(this.link ?? ''), this.link);
+      this.link = sl.getLink(profile, id);
+      this.updateResult(this.link);
     }
   }
 }
