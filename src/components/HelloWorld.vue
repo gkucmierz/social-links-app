@@ -52,9 +52,9 @@ export default {
         this.result = {
           input: link,
           detectedProfile,
-          isValid: sl.isValid(detectedProfile, link),
-          profileId: sl.getProfileId(detectedProfile, link),
-          sanitize: sl.sanitize(detectedProfile, link),
+          isValid: tryFn(() => sl.isValid(detectedProfile, link)),
+          profileId: tryFn(() => sl.getProfileId(detectedProfile, link)),
+          sanitize: tryFn(() => sl.sanitize(detectedProfile, link)),
           "sanitize (desktop)": tryFn(() => sl.sanitize(detectedProfile, link, TYPE_DESKTOP)),
           "sanitize (mobile)": tryFn(() => sl.sanitize(detectedProfile, link, TYPE_MOBILE)),
         };
