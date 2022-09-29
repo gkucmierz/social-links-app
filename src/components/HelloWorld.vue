@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>Demo app that uses utilizes social-links npm module</h3>
+    <h3>Demo app that utilizes social-links npm module</h3>
 
     <input
       type="url"
