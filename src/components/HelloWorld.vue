@@ -70,9 +70,11 @@ export default {
       this.updateResult(link);
     },
     selected(profile) {
-      const id = sl.getProfileId(sl.detectProfile(this.link ?? ''), this.link);
-      this.link = sl.getLink(profile, id);
-      this.updateResult(this.link);
+      if (profile !== null) {
+        const id = sl.getProfileId(sl.detectProfile(this.link ?? ''), this.link);
+        this.link = sl.getLink(profile, id);
+        this.updateResult(this.link);
+      }
     }
   }
 }
