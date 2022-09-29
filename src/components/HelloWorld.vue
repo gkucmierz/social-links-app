@@ -38,13 +38,13 @@ export default {
     return {
       link: '',
       result: {},
-      selected: '',
+      selected: null,
       options: [...sl.profiles].map(([name]) => name)
     }
   },
   methods: {
     updateResult(link) {
-      if (this.selected === '') {
+      if (this.selected === null) {
         this.selected = sl.detectProfile(link);
       }
       const detectedProfile = this.selected;
