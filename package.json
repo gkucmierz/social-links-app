@@ -1,7 +1,7 @@
 {
   "name": "social-links-app",
   "description": "Demo app that utilizes social-links npm module",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
