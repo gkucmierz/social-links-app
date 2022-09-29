@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "register-service-worker": "^1.7.2",
-    "social-links": "^1.7.3",
+    "social-links": "^1.8.0",
     "vue": "^3.2.13"
   },
   "devDependencies": {
